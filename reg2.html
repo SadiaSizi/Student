@@ -146,6 +146,11 @@
         </div>
 
         <div class="form-group">
+          <label for="Birth of Date">B. OD</label>
+          <input type="datetime" id="date" name="date" required />
+        </div>
+
+        <div class="form-group">
           <label for="password">Password</label>
           <input type="password" id="password" name="password" required />
         </div>
@@ -205,7 +210,7 @@
             const result = await response.json();
 
             if (response.ok) {
-                alert("✅ Employee Account Created Successfully!");
+                alert("Verify the email!");
                 window.location.href = "login.html"; 
             } else {
                 alert("Error: " + result.error);

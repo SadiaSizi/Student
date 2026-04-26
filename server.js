@@ -5,11 +5,16 @@ const bcrypt = require('bcrypt');
 const {v4: uuidv4}= require('uuid');
 const transporter = require('./email');
 const app = express();
-require('dotenv').config();
 
 app.use(express.json());
 app.use(cors());
 
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '12345sizi',
+    database: 'fixmate_db'
+});
 
 db.connect(err => {
     if (err) {
@@ -336,5 +341,6 @@ setInterval(() => {
 }, 86400000);
 
 
-const PORT = process.env.PORT || 3000; // platform provides PORT
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(3000, () => {
+    console.log("FixMate Server running on port 3000");
+});
